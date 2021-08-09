@@ -11,7 +11,8 @@ import {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-const docs = await getDocs(query(collection(db, "people")));
+const q = query(collection(db, "people"));
+const docs = await getDocs(q);
 
 docs.forEach((doc) => {
   console.log(doc.id, " => ", doc.data());
